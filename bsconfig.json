@@ -12,6 +12,6 @@
   "bs-dev-dependencies": ["@glennsl/bs-jest"],
   "warnings": {
     "number": "-30-32-48",
-    "error": "+5+8 "
+    "error": "+5+8"
   }
 }

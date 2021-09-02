@@ -6,9 +6,9 @@ external float: float => Js.Json.t = "%identity"
 external int: int => Js.Json.t = "%identity"
 external bool: bool => Js.Json.t = "%identity"
 
-let char = c => c |> String.make(1) |> string
+let char = c => c->String.make(1, _)->string
 
-let date = d => d |> Js.Date.toJSONUnsafe |> string
+let date = d => d->Js.Date.toJSONUnsafe->string
 
 let nullable = (encode, x) =>
   switch x {
@@ -29,10 +29,10 @@ let dict = (encode, d) => {
   jsonDict(Js.Dict.fromArray(encodedPairs))
 }
 
-let object_ = (props): Js.Json.t => props |> Js.Dict.fromList |> jsonDict
+let object_ = (props): Js.Json.t => props->Js.Dict.fromList->jsonDict
 
 external jsonArray: array<Js.Json.t> => Js.Json.t = "%identity"
-let array = (encode, l) => l |> Array.map(encode) |> jsonArray
+let array = (encode, l) => l->Array.map(encode)->jsonArray
 let list = (encode, x) =>
   switch x {
   | list{} => jsonArray([])
