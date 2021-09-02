@@ -1,21 +1,17 @@
 {
-  "name": "@glennsl/bs-json",
-  "bsc-flags": ["-bs-no-version-header", "-bs-super-errors"],
-  "package-specs": [{
-    "module": "commonjs",
-    "in-source": true
-  }],
-  "suffix": ".bs.js",
-  "sources": [
-    "src",
+  "name": "@athaeryn/res-json",
+  "bsc-flags": ["-open Belt"],
+  "package-specs": [
     {
-      "dir": "examples",
-      "type": "dev"
-    },
-    {
-      "dir": "__tests__",
-      "type": "dev"
+      "module": "commonjs",
+      "in-source": true
     }
   ],
-  "bs-dev-dependencies": ["@glennsl/bs-jest"]
+  "suffix": ".bs.js",
+  "sources": ["src"],
+  "bs-dev-dependencies": ["@glennsl/bs-jest"],
+  "warnings": {
+    "number": "-30-32-48",
+    "error": "+5+8 "
+  }
 }
