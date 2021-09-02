@@ -1,6 +1,4 @@
-type decoder<'a> = Js.Json.t => 'a
-
-exception DecodeError(string)
+type decoder<'a> = Js.Json.t => result<'a, string>
 
 let id: decoder<Js.Json.t>
 
@@ -18,10 +16,10 @@ let date: decoder<Js.Date.t>
 
 let nullable: decoder<'a> => decoder<Js.null<'a>>
 
-let nullAs: 'a => decoder<'a>
-
+// TODO a version of array that returns an array<result<'a>>
 let array: decoder<'a> => decoder<array<'a>>
 
+// TODO a version of list that returns a list<result<'a>>
 let list: decoder<'a> => decoder<list<'a>>
 
 let pair: (decoder<'a>, decoder<'b>) => decoder<('a, 'b)>
